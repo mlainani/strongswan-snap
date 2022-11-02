@@ -1,6 +1,6 @@
 name: strongswan-ogra
 adopt-info: strongswan
-base: core18
+base: core20
 summary: Strongswan ipsec/vpn
 description: |
   A snap package for strongswan
@@ -60,9 +60,9 @@ apps:
 parts:
   strongswan:
     source: https://github.com/strongswan/strongswan.git
-    source-tag: 5.8.1
+    source-tag: 5.8.2
     plugin: autotools
-    configflags:
+    autotools-configure-parameters:
       - --enable-openssl
       - --prefix=/usr
       - --sysconfdir=/var/snap/strongswan-ogra/current/etc
@@ -86,7 +86,6 @@ parts:
       - gettext
       - gperf
       - html2text
-      - iptables-dev
       - libcap-dev
       - libcurl4-openssl-dev
       - libgcrypt20-dev
@@ -96,8 +95,7 @@ parts:
       - libldap2-dev
       - libldns-dev
       - libmysqlclient-dev
-      - libnm-glib-vpn-dev
-      - libnm-util-dev
+      - libnm-dev
       - libpcsclite-dev
       - libpam0g-dev
       - libsoup2.4-dev
@@ -113,24 +111,18 @@ parts:
       - iptables
       - libatm1
       - libcap2
-      - libcurl3
       - libdbus-glib-1-2
       - libgcrypt20
       - libglib2.0-0
       - libgpg-error0
       - libgmp10
-      - libjson-c3
       - libldap-2.4-2
       - libldns2
-      - libmysqlclient20
-      - libnm-glib-vpn1
-      - libnm-util2
       - libpam0g
       - libpcsclite1
       - libsoup2.4-1
       - libsqlite3-0
-      - libssl1.0.0
+      - libssl1.1
       - libtspi1
-      - libunbound2
       - libxml2
       - opensc
